@@ -13,6 +13,7 @@ public class SecondActivity extends AppCompatActivity {
     private ImageView supermoon;
     private ImageView waterfall;
     private ConstraintLayout setBackground;
+    Intent myIntent = new Intent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,25 +27,24 @@ public class SecondActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 imgId = R.drawable.supermoon;
-                setBackground.setBackgroundResource(imgId);
-                finish();
+                setBackground.setBackgroundResource(R.drawable.supermoon);
+                myIntent.putExtra("imgId",imgId);
+                setResult(RESULT_OK, myIntent);
+
             }
         });
         waterfall.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View V) {
                 imgId = R.drawable.waterfall;
-                setBackground.setBackgroundResource(imgId);
-                finish();
+                setBackground.setBackgroundResource(R.drawable.waterfall);
+                myIntent.putExtra("imgId",imgId);
+                setResult(RESULT_OK, myIntent);
+
+
 
             }
         });
 
-    }
-    public void finish(){
-        Intent myIntent = new Intent();
-        myIntent.putExtra("imgId",imgId);
-        setResult(RESULT_OK, myIntent);
-        super.finish();
     }
 }
